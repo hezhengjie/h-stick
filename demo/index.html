@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <title>这是一个demo</title>
+    <link rel="stylesheet" href="../src/stick.css">
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        /**
+         * 选项卡
+         */
+        .ui-tab {
+            width: 100%;
+            overflow: hidden;
+        }
+        .ui-tab-nav {
+            width: 100%;
+            background-color: #fff;
+            display: box;
+            display: -webkit-box;
+            font-size: 16px;
+            height: 45px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .ui-tab-nav li {
+            height: 45px;
+            line-height: 45px;
+            min-width: 70px;
+            box-flex: 1;
+            -webkit-box-flex: 1;
+            text-align: center;
+            color: #777;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-bottom: 2px solid transparent;
+            width: 100%;
+        }
+        .ui-tab-nav li.current {
+            color: #00a5e0;
+            border-bottom: 2px #00a5e0 solid;
+        }
+        .ui-tab-nav li:active {
+            opacity: .8;
+        }
+        .ui-tab-nav {
+            overflow: hidden;
+            z-index: 100;
+            height: 40px;
+        }
+        .ui-tab-nav li {
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            color: #000;
+            border: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .ui-tab-nav li.current {
+            border: 0;
+        }
+        .ui-tab-nav li.current:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            margin-left: -19px;
+            background-color: #12b7f5;
+            height: 4px;
+            width: 38px;
+        }
+        .ui-tab-nav.frown {
+            padding: 0 .64rem;
+            margin: 0;
+            background-color:#e9e9e9;
+        }
+        @media screen and (min-device-width:414px) and (-webkit-min-device-pixel-ratio:3) {
+
+
+            .ui-border-b {
+                border-bottom: .5px solid #e9e9e9;
+                background-image: none;
+            }
+
+
+            .ui-border-t {
+                border-top: .5px solid #e9e9e9;
+                background-image: none;
+            }
+
+
+            .ui-border-tb {
+                border-top: .5px solid #e9e9e9;
+                border-bottom: .5px solid #e9e9e9;
+                background-image: none;
+            }
+        }
+
+        .content-a {
+            height: 200px;
+            background-color: #12b7f5;
+            color: #fff;
+            font-size: 48px;
+            text-align: center;
+            line-height: 200px;
+        }
+        .content-b {
+            height: 800px;
+            font-size: 48px;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <div id="contentA" class="content-a">
+        A
+    </div>
+    <div class="sticky-wrap">
+        <ul class="ui-tab-nav ui-border-b frown ">
+            <li class="current">推荐</li>
+            <li>分类</li>
+        </ul>
+    </div>
+    <div id="contentB" class="content-b">
+        B
+    </div>
+</div>
+<script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="../src/stick.js"></script>
+<script>
+    hStick.init();
+</script>
+</body>
+</html>

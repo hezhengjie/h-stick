@@ -1,0 +1,20 @@
+{
+  "name": "h-stick",
+  "version": "1.0.0",
+  "description": "stick",
+  "main": "src/stick.js",
+  "repository": "git@github.com:hezhengjie/h-stick.git",
+  "keywords": [
+    "stick"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "hezhengjie",
+    "email": "727792893@qq.com"
+  },
+  "bugs": {
+    "url": "https://github.com/hezhengjie/h-stick/issues"
+  },
+  "homepage": "https://github.com/hezhengjie/h-stick",
+  "dependencies": {}
+}
