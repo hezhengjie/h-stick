@@ -1,0 +1,15 @@
+.sticky-wrap {
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    position: relative;
+    position: -webkit-sticky;
+    position: sticky;
+}
+.sticky-wrap.sticky {
+    position: fixed;
+}
+.sticky-wrap.ios-header{
+    box-sizing: border-box;
+    padding-top: 20px;
+}
