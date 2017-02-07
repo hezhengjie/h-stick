@@ -21,13 +21,45 @@
     };
     hStick.prototype={
         init: function () {
+            this.addCssByStyle('.sticky-wrap{\
+                top: 0;\
+                width: 100%;\
+                z-index: 999;\
+                position: relative;\
+                position: -webkit-sticky;\
+                position: sticky;\
+            }\
+            .sticky-wrap.sticky {\
+                position: fixed;\
+            }\
+            .sticky-wrap.ios-header{\
+                box-sizing: border-box;\
+                padding-top: 20px;\
+            }');
             this.bindEvent();
         },
-        bindEvent:function(){
+        addCssByStyle:function (cssString){
+        var doc=document;
+        var style=doc.createElement("style");
+        style.setAttribute("type", "text/css");
+
+        if(style.styleSheet){// IE
+            style.styleSheet.cssText = cssString;
+        } else {// w3c
+            var cssText = doc.createTextNode(cssString);
+            style.appendChild(cssText);
+        }
+
+        var heads = doc.getElementsByTagName("head");
+        if(heads.length)
+            heads[0].appendChild(style);
+        else
+            doc.documentElement.appendChild(style);
+    },
+    bindEvent:function(){
             var _this = this;
             if ($(this.header).css("position").indexOf("-webkit-sticky") == -1) {
                 $(document).on('touchend', function() {
-                    clearInterval(_this.isStopTimer);
                     _this.isStopTimer = setInterval(function() {
                         document.body.scrollTop >= _this.offsetTop-3 ? _this.setFixed(): _this.cancelFixed();
                         if(document.body.scrollTop==_this.scrollTop){
@@ -51,7 +83,6 @@
                 $(_this.header).addClass('ios-header');
                 $(_this.header).css('height',iosHeaderHeight)
             }
-            clearInterval(_this.isStopTimer);
         },
         cancelFixed:function(){
             var _this = this;
